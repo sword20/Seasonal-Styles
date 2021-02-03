@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>jQuerry Test Page</title>
+        <script src="https://code.jquery.com/jquery-latest.js"></script>
+    </head>
+    <body>
+        <h1>jQuery Test Page</h1>
+        <div id="myDiv">This is my Div
+            <ul>
+                <li>I'm a list iem</li>
+                <li>I'm a list iem</li>
+                <li>I'm a list iem</li>
+                <li>I'm a list iem</li>
+                <li>I'm a list iem</li>
+                <li>I'm a list iem</li>
+            </ul>
+
+
+        </div>
+
+
+
+    <script>
+        $(function(){
+            //alert("Just a dollar sign")
+            /*
+            $("div#myDiv").css("border","2px solid red");
+            $("div#myDiv").css("background-color","yellow");
+            $("div#myDiv").append("This gets added to the div!");
+            $("div#myDiv").fadeOut();
+            */
+            $("div#myDiv li:even").css("background-color","aqua");
+            $("div#myDiv").hide().fadeIn(5000, function(){
+
+                $("div#myDiv li").each(function(){
+                    $(this).slideDown(2000);
+            });
+
+
+            });
+
+
+
+        });
+        //alert("this is not jQuery!");
+
+    </script>
+    </body>
+</html>
