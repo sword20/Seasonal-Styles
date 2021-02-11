@@ -118,7 +118,10 @@
 
 			switch(season){
 				default:
-					alert("Yay Default!");
+					$('#logo').attr("src", "images/four-seasons.gif");
+					$('#wear').attr("src", "images/300x400.png");
+					$('main header h3').html("Outfitter for All Seasons!");
+					$('body').css("background-image", "linear-gradient(to right, rgba(221, 129, 201, 3), rgb(224, 222, 96))");
 
 				case 'spring':
 					//alert("Yay Spring!");
