@@ -104,21 +104,84 @@
     <!-- END Footer -->
 	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
 	<script type="text/javascript">
-	$("document").ready(function(){
-		$('#dateForm').submit(function(e){//handle form submission event
-            e.preventDefault();//stop default submission
-			var datetext = $('input[name=dateField]').val();//grab data from textbox
-			var formDate = new Date(datetext);//create a date from form input
-			var today = new Date();
-			
-			if(formDate > today)
-			{
-				alert(datetext + " is in the future!");
-			}else{
-				alert(datetext + " is in the past!");
-			}
+	$("document").ready(function () {
+			$('#dateForm').submit(function (e) {//handle form submission event
+				e.preventDefault();//stop default submission
+				var datetext = $('input[name=dateField]').val();//grab data from textbox
+				var formDate = new Date(datetext);//create a date from form input
+				var today = new Date();
+				var day = formDate.getDate();
+				var month = formDate.getMonth() + 1;
+				var season; 
+
+				if (month >= 6 && month <= 8) {
+					season = 'This Spring'
+				} else if (month >= 9 && month <= 11) {
+					season = 'This Fall'
+				} else if (month >= 3 && month <= 5) {
+					season = 'This Summer'
+				} else if (month == 12 || month == 1 || month == 2) {
+					season = 'This Winter'
+				} else {
+					season = 'All Seasons'
+				}
+
+
+
+
+				if (formDate > today) {
+					alert(datetext + " Browse Our Future Collections for " + season + " !");
+
+				} else {
+					alert(datetext + " Browse Our Collections for " + season + " !");
+				}
+
+				switch (true) {
+					case (month >= 6 && month <= 8):
+						$('#logo').attr("src", "images/spring.gif");
+						$('#wear').attr("src", "images/spring-wear.jpg");
+						$('main header h3').html("Get a jump on Springwear!");
+						$('body').css("background-image", "linear-gradient(to right, rgb(112, 226, 254), rgb(132, 241, 146))");
+						season = 'This Spring';
+
+						
+						break;
+
+					case (month >= 9 && month <= 11):
+						$('#logo').attr("src", "images/fall.gif");
+						$('#wear').attr("src", "images/fall-wear.jpg");
+						$('main header h3').html("Don't trip! Its time to drip this fall season!!");
+						$('body').css("background-image", "linear-gradient(to right, rgb(236, 160, 160),   rgb(217, 106, 62))");
+						season = 'This Fall';
+						break;
+
+					case (month >= 3 && month <= 5):
+						$('#logo').attr("src", "images/summer.gif");
+						$('#wear').attr("src", "images/summer-wear.jpg");
+						$('main header h3').html("Look as hot as the summer sun!");
+						$('body').css("background-image", "linear-gradient(to right, rgba(147, 118, 36, 0.807),  rgb(255, 222, 103))");
+						season = 'This Summer';
+
+						break;
+
+					case (month == 12 || month == 1 || month == 2):
+						$('#logo').attr("src", "images/winter.gif");
+						$('#wear').attr("src", "images/winter-wear.jpg");
+						$('main header h3').html("Shop for the coolest looks this winter!");
+						$('body').css("background-image", "linear-gradient(to right,rgb(205, 160, 236), rgb(78, 154, 241))");
+						season = 'This Winter';
+						break;
+
+					default:
+						$('#logo').attr("src", "images/four-seasons.gif");
+						$('#wear').attr("src", "images/300x400.png");
+						$('main header h3').html("Outfitter for All Seasons!");
+						$('body').css("background-image", "linear-gradient(to right, rgba(221, 129, 201, 3), rgb(224, 222, 96))");
+						season = 'All Seasons';
+				}
+
+			});
 		});
-	});
     </script>
 	
 </body>
